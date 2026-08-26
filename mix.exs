@@ -4,7 +4,7 @@ defmodule TcpMultiplex.MixProject do
   def project do
     [
       app: :tcp_multiplex,
-      version: "0.5.1",
+      version: "0.5.2",
       elixir: "~> 1.20",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -28,7 +28,7 @@ defmodule TcpMultiplex.MixProject do
   defp deps do
     [
       {:burrito, "~> 1.0"},
-      {:tinfoil, "~> 0.2", only: :dev, runtime: false},
+      {:tinfoil, "~> 0.2", runtime: false},
       {:thousand_island, "~> 1.0"},
       {:connection, "~> 1.1"},
       {:yaml_elixir, "~> 2.12"}
