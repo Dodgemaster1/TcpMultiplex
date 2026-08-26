@@ -4,7 +4,7 @@ defmodule TcpMultiplex.MixProject do
   def project do
     [
       app: :tcp_multiplex,
-      version: "0.5.2",
+      version: "0.5.3",
       elixir: "~> 1.20",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -37,7 +37,7 @@ defmodule TcpMultiplex.MixProject do
 
   def releases do
     [
-      tcp_server: [
+      tcp_multiplex: [
         steps: [:assemble, &Burrito.wrap/1],
         burrito: [
           targets: [
