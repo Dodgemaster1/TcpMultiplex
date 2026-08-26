@@ -9,7 +9,7 @@ set -eu
 
 APP="tcp_multiplex"
 REPO="Dodgemaster1/TcpMultiplex"
-DEFAULT_INSTALL_DIR="~/.local/bin"
+DEFAULT_INSTALL_DIR="${HOME}/.local/bin"
 VERSION=""
 INSTALL_DIR="$DEFAULT_INSTALL_DIR"
 
