@@ -13,7 +13,7 @@ permissions:
 
 env:
   MIX_ENV: prod
-  APP_NAME: tcp_multiplex
+  APP_NAME: multcplex
 
 jobs:
   build:

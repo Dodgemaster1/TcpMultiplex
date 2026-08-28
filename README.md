@@ -1,9 +1,9 @@
-# TcpMultiplex
+# MulTCPlex
 
 **TODO: Add description**
 
 ## Installation
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Dodgemaster1/TcpMultiplex/main/scripts/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/Dodgemaster1/MulTCPlex/main/scripts/install.sh | sh
 ```

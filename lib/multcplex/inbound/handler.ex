@@ -1,7 +1,7 @@
-defmodule Multiplex.Inbound.Handler do
+defmodule Multcplex.Inbound.Handler do
   use ThousandIsland.Handler
   alias ThousandIsland.Socket
-  alias Multiplex.Outbound
+  alias Multcplex.Outbound
 
   @impl ThousandIsland.Handler
   def handle_connection(socket, state) do

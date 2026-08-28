@@ -1,4 +1,4 @@
-defmodule Multiplex.Outbound.ClientRegistry do
+defmodule Multcplex.Outbound.ClientRegistry do
   @default_name __MODULE__
 
   def child_spec(opts) do
@@ -6,7 +6,7 @@ defmodule Multiplex.Outbound.ClientRegistry do
 
     %{
       id: name,
-      start: {__MODULE__, :start_link, [opts]}
+      start: {__MODULE__, :start_link, [opts]},
     }
   end
 
@@ -22,7 +22,7 @@ defmodule Multiplex.Outbound.ClientRegistry do
   def broadcast(inbound_id, message, registry_name \\ @default_name) do
     registry_name
     |> Registry.lookup(inbound_id)
-    |> Enum.each(fn {pid, _metadata} -> Multiplex.Outbound.TCPClient.send(pid, message) end)
+    |> Enum.each(fn {pid, _metadata} -> Multcplex.Outbound.TCPClient.send(pid, message) end)
   end
 
   def get_all(registry_name \\ @default_name) do

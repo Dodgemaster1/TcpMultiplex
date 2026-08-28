@@ -4,8 +4,8 @@ set windows-shell := ["powershell.exe", "-NoLogo", "-Command"]
 help:
     @just --list --unsorted
 
-dev:
-    mix run --no-halt
+dev *args:
+    mix run --no-halt -- {{args}}
 
 prod $MIX_ENV="prod":
     mix run --no-halt
@@ -21,8 +21,8 @@ format:
 release:
     mix release --overwrite
 
-bin:
-    _build/dev/rel/tcp_multiplex/bin/tcp_multiplex
+bin *args:
+    _build/dev/rel/multcplex/bin/multcplex {{ args }}
 
 alias t := test
 test:

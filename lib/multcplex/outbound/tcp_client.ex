@@ -1,4 +1,4 @@
-defmodule Multiplex.Outbound.TCPClient do
+defmodule Multcplex.Outbound.TCPClient do
   use Connection
 
   def child_spec(opts) do
@@ -7,7 +7,7 @@ defmodule Multiplex.Outbound.TCPClient do
         {__MODULE__, Keyword.fetch!(opts, :inbound_id), Keyword.fetch!(opts, :host),
          Keyword.fetch!(opts, :port)},
       start: {__MODULE__, :start_link, [opts]},
-      restart: :permanent
+      restart: :permanent,
     }
   end
 
@@ -22,7 +22,7 @@ defmodule Multiplex.Outbound.TCPClient do
     host = Keyword.fetch!(opts, :host) |> String.to_charlist()
     port = Keyword.fetch!(opts, :port)
 
-    Multiplex.Outbound.ClientRegistry.register(inbound_id)
+    Multcplex.Outbound.ClientRegistry.register(inbound_id)
 
     s = %{host: host, port: port, sock: nil}
     {:connect, :init, s}
