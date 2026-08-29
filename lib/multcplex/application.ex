@@ -3,7 +3,12 @@ defmodule Multcplex.Application do
   require Logger
 
   def start(_type, _args) do
-    System.argv() |> Multcplex.Cli.Handler.process()
+    args = if Burrito.Util.running_standalone?() do
+      Burrito.Util.Args.argv()
+    else
+      System.argv()
+    end
+    Multcplex.Cli.Handler.process(args)
     clients = Multcplex.Config.get_clients()
     Logger.debug("Loaded clients: #{inspect(clients, pretty: true)}")
     Logger.info("Server started")
