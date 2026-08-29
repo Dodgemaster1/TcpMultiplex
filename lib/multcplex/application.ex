@@ -31,8 +31,13 @@ defmodule Multcplex.Application do
     children = [Multcplex.Outbound.ClientRegistry]
 
     opts = [strategy: :one_for_one, name: Multcplex.Supervisor]
-    result = Supervisor.start_link(children ++ servers ++ clients, opts)
-    Logger.info("Server started (#{inspect(result)})")
-    result
+    case Supervisor.start_link(children ++ servers ++ clients, opts) do
+      {:ok, pid} = result ->
+        Logger.info("Server started")
+        result
+
+      error ->
+        error
+      end
   end
 end
