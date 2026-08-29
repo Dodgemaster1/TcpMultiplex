@@ -2,6 +2,7 @@ defmodule Multcplex.Application do
   use Application
   require Logger
 
+  @impl true
   def start(_type, _args) do
     args = if Burrito.Util.running_standalone?() do
       Burrito.Util.Args.argv()
@@ -31,7 +32,7 @@ defmodule Multcplex.Application do
 
     opts = [strategy: :one_for_one, name: Multcplex.Supervisor]
     result = Supervisor.start_link(children ++ servers ++ clients, opts)
-    Logger.info("Server started (#{result})")
+    Logger.info("Server started (#{inspect(result)})")
     result
   end
 end
