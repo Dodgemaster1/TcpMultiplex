@@ -4,7 +4,7 @@ defmodule MulTCPlex.MixProject do
   def project do
     [
       app: :multcplex,
-      version: "0.6.2",
+      version: "0.6.3",
       elixir: "~> 1.20",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -31,7 +31,7 @@ defmodule MulTCPlex.MixProject do
 
   defp deps do
     [
-      {:burrito, "~> 1.0"},
+      {:burrito, "~> 1.6"},
       {:tinfoil, "~> 0.2", runtime: false},
       {:thousand_island, "~> 1.0"},
       {:connection, "~> 1.1"},

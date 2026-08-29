@@ -11,7 +11,6 @@ defmodule Multcplex.Application do
     Multcplex.Cli.Handler.process(args)
     clients = Multcplex.Config.get_clients()
     Logger.debug("Loaded clients: #{inspect(clients, pretty: true)}")
-    Logger.info("Server started")
 
     servers =
       for client <- Multcplex.Config.get_clients() do
@@ -31,6 +30,8 @@ defmodule Multcplex.Application do
     children = [Multcplex.Outbound.ClientRegistry]
 
     opts = [strategy: :one_for_one, name: Multcplex.Supervisor]
-    Supervisor.start_link(children ++ servers ++ clients, opts)
+    result = Supervisor.start_link(children ++ servers ++ clients, opts)
+    Logger.info("Server started (#{result})")
+    result
   end
 end
