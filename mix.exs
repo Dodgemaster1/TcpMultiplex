@@ -4,7 +4,7 @@ defmodule MulTCPlex.MixProject do
   def project do
     [
       app: :multcplex,
-      version: "0.6.0",
+      version: "0.6.1",
       elixir: "~> 1.20",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -13,6 +13,10 @@ defmodule MulTCPlex.MixProject do
         targets: [:darwin_arm64, :linux_x86_64, :windows_x86_64],
         installer: [
           enabled: true,
+        ],
+        github: [
+          repo: "Dodgemaster1/MulTCPlex",
+          draft: false,
         ],
       ],
     ]
