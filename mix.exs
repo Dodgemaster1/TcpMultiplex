@@ -4,13 +4,14 @@ defmodule MulTCPlex.MixProject do
   def project do
     [
       app: :multcplex,
-      version: "0.6.8",
+      version: "0.6.9",
       elixir: "~> 1.20",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       releases: releases(),
       tinfoil: [
-        targets: [:darwin_arm64, :linux_x86_64, :windows_x86_64],
+#        targets: [:darwin_arm64, :linux_x86_64, :windows_x86_64],
+        targets: [:linux_x86_64],
         installer: [
           enabled: true,
         ],
@@ -48,8 +49,8 @@ defmodule MulTCPlex.MixProject do
         burrito: [
           targets: [
             mac: [os: :darwin, cpu: :aarch64],
-             windows: [os: :windows, cpu: :x86_64],
-             linux: [os: :linux, cpu: :x86_64],
+            windows: [os: :windows, cpu: :x86_64],
+            linux: [os: :linux, cpu: :x86_64],
           ],
         ],
       ],

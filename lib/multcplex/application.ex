@@ -4,11 +4,13 @@ defmodule Multcplex.Application do
 
   @impl true
   def start(_type, _args) do
-    args = if Burrito.Util.running_standalone?() do
-      Burrito.Util.Args.argv()
-    else
-      System.argv()
-    end
+    args =
+      if Burrito.Util.running_standalone?() do
+        Burrito.Util.Args.argv()
+      else
+        System.argv()
+      end
+
     Multcplex.Cli.Handler.process(args)
     clients = Multcplex.Config.get_clients()
     Logger.debug("Loaded clients: #{inspect(clients, pretty: true)}")
@@ -31,6 +33,7 @@ defmodule Multcplex.Application do
     children = [Multcplex.Outbound.ClientRegistry]
 
     opts = [strategy: :one_for_one, name: Multcplex.Supervisor]
+
     case Supervisor.start_link(children ++ servers ++ clients, opts) do
       {:ok, _pid} = result ->
         Logger.info("Server started")
@@ -41,6 +44,6 @@ defmodule Multcplex.Application do
 
       error ->
         error
-      end
+    end
   end
 end
