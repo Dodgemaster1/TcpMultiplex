@@ -34,9 +34,9 @@ defmodule Multcplex.Application do
     case Supervisor.start_link(children ++ servers ++ clients, opts) do
       {:ok, _pid} = result ->
         Logger.info("Server started")
-        if Burrito.Util.running_standalone?() do
-          Process.sleep(:infinity)
-        end
+        # if Burrito.Util.running_standalone?() do
+        #   Process.sleep(:infinity)
+        # end
         result
 
       error ->
