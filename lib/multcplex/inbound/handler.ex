@@ -9,6 +9,8 @@ defmodule Multcplex.Inbound.Handler do
 
     case Socket.peername(socket) do
       {:ok, {addr, _port}} ->
+        addr = Tuple.to_list(addr) |> Enum.join(".")
+
         if is_nil(allowed_ips) or addr in allowed_ips do
           {:continue, state, state[:config]["timeout"]}
         else

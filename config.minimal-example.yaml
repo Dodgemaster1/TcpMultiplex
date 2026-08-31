@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=./config.schema.json
+
+clients:
+  - port: 6561
+    servers:
+      - host: 192.168.8.200
+        port: 6566
+      - host: 192.168.8.200
+        port: 6567

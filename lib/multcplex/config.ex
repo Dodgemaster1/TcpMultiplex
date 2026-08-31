@@ -7,7 +7,7 @@ defmodule Multcplex.Config do
       config =
         update_in(
           config,
-          [Access.key("clients", []), Access.all(), Access.key("timeout", 30)],
+          [Access.key("clients", []), Access.all(), Access.key("timeout", 300)],
           &(&1 * 1000)
         )
 

@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AppConfiguration",
+  "description": "Validation and documentation schema for the application configuration file.",
+  "type": "object",
+  "required": [
+    "clients"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "clients": {
+      "type": "array",
+      "description": "List of client configurations.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/ClientConfig"
+      }
+    }
+  },
+  "$defs": {
+    "ClientConfig": {
+      "type": "object",
+      "description": "Configuration for an individual client.",
+      "required": [
+        "port",
+        "servers"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "port": {
+          "type": "integer",
+          "description": "Unique network port for the client.",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "allowed_ips": {
+          "type": "array",
+          "description": "List of allowed IP addresses. If omitted, all IPs are allowed.",
+          "default": [],
+          "items": {
+            "type": "string",
+            "oneOf": [
+              {
+                "format": "ipv4"
+              }
+            ]
+          }
+        },
+        "timeout": {
+          "type": "integer",
+          "description": "Connection timeout in seconds.",
+          "default": 300,
+          "minimum": 0
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable client name used for logging.",
+          "default": ""
+        },
+        "servers": {
+          "type": "array",
+          "description": "List of target servers connected to this client.",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/ServerConfig"
+          }
+        }
+      }
+    },
+    "ServerConfig": {
+      "type": "object",
+      "description": "Configuration for a target server.",
+      "required": [
+        "host",
+        "port"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "host": {
+          "type": "string",
+          "description": "IP address or hostname of the target server.",
+          "minLength": 1
+        },
+        "port": {
+          "type": "integer",
+          "description": "Port of the target server.",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "name": {
+          "type": "string",
+          "description": "Server identifier name.",
+          "default": ""
+        }
+      }
+    }
+  }
+}

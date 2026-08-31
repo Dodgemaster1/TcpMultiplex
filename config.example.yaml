@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=./config.schema.json
+
+# List of client configurations (minimum 1)
+clients:
+    # [Required] Unique network port for the client (1 to 65535)
+  - port: 6561
+
+    # [Optional] List of allowed IPv4 addresses.
+    # If omitted, all IPs are allowed. Default: []
+    allowed_ips:
+      - 192.168.8.200
+      - 192.168.8.166
+
+    # [Optional] Connection timeout in seconds. Default: 300
+    timeout: 300
+
+    # [Optional] Human-readable client name used for logging. Default: ""
+    name: "main-client"
+
+    # [Required] List of target servers connected to this client (minimum 1)
+    servers:
+        # [Required] IP address or hostname of the target server
+      - host: 192.168.8.200
+        # [Required] Port of the target server (1 to 65535)
+        port: 6566
+        # [Optional] Server identifier name. Default: ""
+        name: "testserver1"
+
+      - host: 192.168.8.200
+        port: 6567
+        name: "testserver2"

@@ -4,13 +4,13 @@ defmodule MulTCPlex.MixProject do
   def project do
     [
       app: :multcplex,
-      version: "0.7.0-rc.2",
+      version: "0.7.0",
       elixir: "~> 1.20",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       releases: releases(),
       tinfoil: [
-#        targets: [:darwin_arm64, :linux_x86_64, :windows_x86_64],
+        #        targets: [:darwin_arm64, :linux_x86_64, :windows_x86_64],
         targets: [:linux_x86_64],
         installer: [
           enabled: true,

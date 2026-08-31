@@ -25,3 +25,4 @@ multcplex-*.tar
 .idea
 .elixir_ls
 burrito_out
+config.yaml
