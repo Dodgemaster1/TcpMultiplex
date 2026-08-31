@@ -4,7 +4,7 @@ defmodule MulTCPlex.MixProject do
   def project do
     [
       app: :multcplex,
-      version: "0.6.9",
+      version: "0.7.0-rc.1",
       elixir: "~> 1.20",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -48,8 +48,8 @@ defmodule MulTCPlex.MixProject do
         steps: [:assemble, &Burrito.wrap/1],
         burrito: [
           targets: [
-            mac: [os: :darwin, cpu: :aarch64],
-            windows: [os: :windows, cpu: :x86_64],
+#            mac: [os: :darwin, cpu: :aarch64],
+#            windows: [os: :windows, cpu: :x86_64],
             linux: [os: :linux, cpu: :x86_64],
           ],
         ],
