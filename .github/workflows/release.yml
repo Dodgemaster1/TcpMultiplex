@@ -22,14 +22,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - id: darwin_arm64
-            targets: "darwin_arm64"
-            runner: macos-latest
           - id: linux_x86_64
             targets: "linux_x86_64"
-            runner: ubuntu-latest
-          - id: windows_x86_64
-            targets: "windows_x86_64"
             runner: ubuntu-latest
     runs-on: ${{ matrix.runner }}
     steps:
